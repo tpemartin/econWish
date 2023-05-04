@@ -1,3 +1,6 @@
+# PostalStamp components
+
+  * [figma page](https://www.figma.com/file/lMbFHBKni09R2YdpZMNR2T/week8?type=design&node-id=122-26)
 
 # Deploy to GitHub Pages
 
@@ -8,6 +11,41 @@
 ## Github Desktop
 
   * <https://desktop.github.com/>
+
+### Create a repository
+
+  * File > Add local repository
+
+  * Publish repository
+
+### Create Github page
+
+  * (... icon ) settings > pages
+
+  * Source: `main` branch / `docs` folder
+
+It would create an entry to your web app at
+
+  * <https://tpemartin.github.io/econWish>
+
+Without further setup, you web app based url is 
+
+  * https://tpemartin.github.io
+
+So if your `index.html` refer to `/assets/index-d526a0c5.css`, it means there is such a file under
+
+   * https://tpemartin.github.io/assets/index-d526a0c5.css
+
+The correct one is
+
+   * https://tpemartin.github.io/econWish/assets/index-d526a0c5.css
+
+We have to setup the base path of the web app.
+
+#### Stages of App developments
+
+  * development stage: source codes, everything only developers could see.
+  * production stage: final output file structure for public access.
 
 ## vite.config.js
 
@@ -22,3 +60,10 @@ export default defineConfig({
 ```
    * Only `docs` folder will be deployed.
    * Repository name is `econWish` so the base path is `/econWish/`.
+
+
+# MUI Layout
+
+## Grids
+
+  * <https://mui.com/material-ui/react-grid2/>
