@@ -11,6 +11,10 @@ const stampl = {
 
 */
 export default function PostalStamp(){
+
+    switch (variant) {
+        case 0:
+    }
     
     return (
         <div className="seal">

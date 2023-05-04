@@ -2,6 +2,21 @@
 
   * [figma page](https://www.figma.com/file/lMbFHBKni09R2YdpZMNR2T/week8?type=design&node-id=122-26)
 
+## Redesign PostalStamp 
+
+Usage:
+```js
+const stampl = {
+    left: "-10px",
+    bottom: "-50px",
+    transform: "rotate(-45deg)"
+}
+<PostalStamp variant = {2} stampleLocation = {stampl}/>
+
+```
+
+  * For `variant`, try to use [switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+
 # Deploy to GitHub Pages
 
 ## Create a vite project
