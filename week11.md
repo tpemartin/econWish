@@ -67,3 +67,5 @@ export default defineConfig({
 ## Grids
 
   * <https://mui.com/material-ui/react-grid2/>
+
+  * [breakpoints](https://mui.com/material-ui/customization/breakpoints/#default-breakpoints)
