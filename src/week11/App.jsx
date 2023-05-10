@@ -15,20 +15,24 @@ export default function App() {
 
     const users = convertUsersToArrayOfObject(dataJson)
 
+    const style = {margin: "auto", width: "370px"};
+
     const cards = users.map((e, i) => {
         return (
             <GalleryItem key={i}>
-                <Card user={e} style={{margin: 'auto', width: "370px"}}/>
+                <Card user={e} style={style}/>
             </GalleryItem>
         )
     })
 
+    console.log(style)
     return (
         <div className="App">
-            
+            <Card user={users[0]} style={style}/>
+{/*             
                 <Gallery>
                 {cards}
-                </Gallery>
+                </Gallery> */}
             
             <NavbarCustom>
                 <NavbarItem>

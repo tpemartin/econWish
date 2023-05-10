@@ -12,9 +12,11 @@ const stampl = {
 */
 export default function PostalStamp(){
 
-    switch (variant) {
-        case 0:
-    }
+    // let variantStyle = {}
+    // switch (variant) {
+    //     case 0:
+    //         variantStyle = {marginLeft: "....px"}
+    // }
     
     return (
         <div className="seal">
