@@ -11,8 +11,22 @@ import appConfig from "../appConfig.json"
 import dataJson from "./data.json"
 import { Gallery, GalleryItem } from '../components/Layout3';
 
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 export default function App() {
 
+    console.log(dataJson)
     const users = convertUsersToArrayOfObject(dataJson)
 
     const style = {margin: "auto", width: "370px"};
@@ -20,19 +34,20 @@ export default function App() {
     const cards = users.map((e, i) => {
         return (
             <GalleryItem key={i}>
+                {/* <Item sx={{height: "300px"}}/> */}
                 <Card user={e} style={style}/>
             </GalleryItem>
         )
     })
 
     console.log(style)
+    console.log(users[0])
     return (
         <div className="App">
-            <Card user={users[0]} style={style}/>
-{/*             
+            
                 <Gallery>
                 {cards}
-                </Gallery> */}
+                </Gallery>
             
             <NavbarCustom>
                 <NavbarItem>
