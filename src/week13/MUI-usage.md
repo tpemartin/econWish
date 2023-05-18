@@ -69,7 +69,9 @@ This is used to stack multiple jsx elements vertically or horizontally.
 
 # Exercise
 
+We see in our class:
+
   * Start from branch `main` create `main-version2` branch to embody the components (main from layout) of MUI.
 
-Follow the same practice, from branch week13, create a branch. Complete the correct UI look of the current card on that newly created branch.
+Follow the same practice, from branch `version-2.0`, create a branch. Complete the correct UI look of the current card on that newly created branch.
 
