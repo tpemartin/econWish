@@ -15,6 +15,10 @@ This is the same as `<></>` in jsx. It is used to wrap multiple jsx elements.
 
 This is used to reset the default css of the browser. It is usually used in the root component of the app.
 
+***
+
+The following are from [Layout](https://mui.com/components/layout/) of MUI.
+
 3. `<Box>`
 
 This is used to create a box. It is usually used to create a margin or padding.
@@ -55,4 +59,11 @@ This is used to create a container with the inner content centered.
     </Typography>
   </Box>
 ```
+
+5. `<Stacking/>`
+
+This is used to stack multiple jsx elements vertically or horizontally.
+
+  * spacing: `1`,`2`,`3`,`4`,`5`,`6`,`7`,`8`,`9`,`10`,`11`,`12`,`14`,`16`,`20`,`24`,`28`,`32`,`36`,`40`
+
 
