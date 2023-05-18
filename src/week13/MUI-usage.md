@@ -60,10 +60,16 @@ This is used to create a container with the inner content centered.
   </Box>
 ```
 
-5. `<Stacking/>`
+5. `<Stack/>`
 
 This is used to stack multiple jsx elements vertically or horizontally.
 
   * spacing: `1`,`2`,`3`,`4`,`5`,`6`,`7`,`8`,`9`,`10`,`11`,`12`,`14`,`16`,`20`,`24`,`28`,`32`,`36`,`40`
 
+
+# Exercise
+
+  * Start from branch `main` create `main-version2` branch to embody the components (main from layout) of MUI.
+
+Follow the same practice, from branch week13, create a branch. Complete the correct UI look of the current card on that newly created branch.
 
