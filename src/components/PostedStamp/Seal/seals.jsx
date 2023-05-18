@@ -5,6 +5,9 @@ import eagle from "./img/eagle.svg"
 import heart_lake from "./img/heart-lake.svg"
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+// last time
+//  const seal = [ntpu_stone, b_school, gate, eagle, heart_lake]
+
 const seals = [
     {
         src: ntpu_stone,
@@ -12,7 +15,7 @@ const seals = [
     },
     {
         src: b_school,
-        style: { margin: "auto" }
+        style: { margin: "0px 5px 21px -8px" }
     },
     {
         src: gate,
@@ -20,11 +23,11 @@ const seals = [
     },
     {
         src: eagle,
-        style: { margin: "auto" }
+        style: { margin: "0 0 9px 8px" }
     },
     {
         src: heart_lake,
-        style: { margin: "auto" }
+        style: { margin: "0" }
     }]
 
 export default seals;

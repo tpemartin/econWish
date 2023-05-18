@@ -7,6 +7,10 @@ export default function PostedStamp({ imgSrc, sealVariant, sealLocation }) {
 
   sealVariant = sealVariant ? sealVariant : 2
   sealLocation = sealLocation ? sealLocation : { left: "-10px", bottom: "-50px", transform: "rotate(-45deg)" }
+   
+  // sealVariant = 1
+  // sealLocation = { left: "10px", bottom: "-80px", transform: "rotate(45deg)" }
+
   return (
     <div className="stamp-holder">
       <Stamp imgSrc={imgSrc} />
