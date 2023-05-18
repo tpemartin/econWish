@@ -46,7 +46,7 @@ export default function Card2({ user }) {
         <Stack spacing={2}>
           <Sender name={name} grade={grade} />
           <Box sx={{ display: 'flex', alignItems: 'center', pb: 1 }}>
-            <PostedStamp imgSrc={imgSrc} sealVariant={0} />
+            <PostedStamp imgSrc={imgSrc} sealVariant={4} />
           </Box>
           <Wish wish={wish} />
         </Stack>
