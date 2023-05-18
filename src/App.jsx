@@ -5,7 +5,7 @@ import './App.css'
 import PlayIcon from '@mui/icons-material/PlayArrow';
 import NextIcon from '@mui/icons-material/FastForward';
 import PreviousIcon from '@mui/icons-material/FastRewind';
-import Card from './components/Card';
+import Card2 from './components/Card2';
 import { IconButton } from '@mui/material';
 import dataJson from "./data.json"
 import { Gallery, GalleryItem } from './components/Layout3';
@@ -14,6 +14,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
+import RecipeReviewCard from './components/Card2';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -33,8 +34,9 @@ export default function App() {
     const cards = users.map((e, i) => {
         return (
             <GalleryItem key={i}>
+                <Card2 user={e}/>
                 {/* <Item sx={{height: "300px"}}/> */}
-                <Card user={e} style={style}/>
+                {/* <Card user={e} style={style}/>   */}
             </GalleryItem>
         )
     })
