@@ -36,9 +36,16 @@ export default function Card2({ user }) {
     setShowFront(true)
   }
 
-  var cardContent = showFront ?
-    <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :
-    <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
+  // var cardContent = showFront ?
+  //   <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :
+  //   <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
+
+  var cardContent;
+if(showFront){
+  cardContent = <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} />
+} else {
+  cardContent = <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
+}
 
   return (
     <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
