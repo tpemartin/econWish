@@ -97,6 +97,20 @@ function ContentPostalFront({ imgSrc, sealVariant, name, grade, wish, onClick })
   )
 }
 function ContentPostalBack({ imgSrc, wish, onClick }) {
+
+  const [showPic, setShowPic] = useState(false)
+
+  function handleToggle(){
+    if(showPic){ 
+      setShowPic(false)
+    } else {
+      setShowPic(true)
+    }
+  } 
+  
+  var op = showPic? 1: 0.3
+  var vs = showPic?  "hidden": "visible"
+
   return (
 
     <div style={{ height: "100%", position: "relative" }}>
@@ -105,9 +119,9 @@ function ContentPostalBack({ imgSrc, wish, onClick }) {
         duration={0}
         src={imgSrc}
         fit="cover"
-        style={{ opacity: 0.3 }}
+        style={{ opacity: op }}
       />
-      <div style={{ position: "absolute", top: "0", height: "100%" }}>
+      <div style={{ position: "absolute", top: "0", height: "100%", visibility: vs }}>
         <Stack sx={{ height: "100%", justifyContent: "center" }}>
           <Container>
             <Box>
@@ -119,7 +133,7 @@ function ContentPostalBack({ imgSrc, wish, onClick }) {
         </Stack>
       </div>
       <div style={{ position: "absolute", bottom: "0%" , width: "100%"}}>
-        <Container><CustomizedSwitches/></Container>
+        <Container><CustomizedSwitches onChange={handleToggle}/></Container>
       </div>
       <IconButton
         aria-label="close"

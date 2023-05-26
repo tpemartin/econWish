@@ -57,10 +57,10 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   }));
 
-export default function CustomizedSwitches() {
+export default function CustomizedSwitches({onChange}) {
     console.log(NotesIcon)
     return (
-        <FormGroup>
+        <FormGroup onChange={onChange}>
             <Container>
                 <FormControlLabel
                     control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
