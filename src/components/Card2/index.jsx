@@ -29,8 +29,6 @@ export default function Card2({ user }) {
     <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :
     <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
 
- 
-
   return (
     <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
       {cardContent}

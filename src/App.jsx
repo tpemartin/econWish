@@ -6,6 +6,7 @@ import PlayIcon from '@mui/icons-material/PlayArrow';
 import NextIcon from '@mui/icons-material/FastForward';
 import PreviousIcon from '@mui/icons-material/FastRewind';
 import Card2 from './components/Card2';
+import Card from './components/Card4';
 import { IconButton } from '@mui/material';
 import dataJson from "./data.json"
 import { Gallery, GalleryItem } from './components/Layout3';
@@ -34,7 +35,7 @@ export default function App() {
     const cards = users.map((e, i) => {
         return (
             <GalleryItem key={i}>
-                <Card2 user={e}/>
+                <Card user={e}/>
                 {/* <Item sx={{height: "300px"}}/> */}
                 {/* <Card user={e} style={style}/>   */}
             </GalleryItem>
