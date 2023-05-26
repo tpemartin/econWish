@@ -1,19 +1,7 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import "./index.css"
 import "./wish.css"
 import PostedStamp from "../PostedStamp"
@@ -21,13 +9,14 @@ import Stack from '@mui/material/Stack';
 import { Box, Button, Container } from '@mui/material';
 import Image from "mui-image"
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import CustomizedSwitches from './Switch';
 
 export default function Card2({ user }) {
 
   const { name, grade, imgSrc, wish } = user
 
-  var [showFront, setShowFront] = useState(true)
+  const [showFront, setShowFront] = useState(true)
 
   function handleClipWish(){
     setShowFront(false)
@@ -36,16 +25,11 @@ export default function Card2({ user }) {
     setShowFront(true)
   }
 
-  // var cardContent = showFront ?
-  //   <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :
-  //   <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
+  var cardContent = showFront ?
+    <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :
+    <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
 
-  var cardContent;
-if(showFront){
-  cardContent = <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} />
-} else {
-  cardContent = <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
-}
+ 
 
   return (
     <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
@@ -133,6 +117,9 @@ function ContentPostalBack({ imgSrc, wish, onClick }) {
             </Box>
           </Container>
         </Stack>
+      </div>
+      <div style={{ position: "absolute", bottom: "0%" , width: "100%"}}>
+        <Container><CustomizedSwitches/></Container>
       </div>
       <IconButton
         aria-label="close"
