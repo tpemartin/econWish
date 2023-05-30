@@ -7,9 +7,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 export default function AutoCompleteSearch({options}) {
   // reference: https://mui.com/material-ui/react-autocomplete/#free-solo
 
-  const [value, setValue] = React.useState(options[0].label);
-  const [inputValue, setInputValue] = React.useState(options[0].id);
-
+ 
   const handleOnChange = (event, newValue) => {
     scrollToSearchedCard(newValue.id)
   }
