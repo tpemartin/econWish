@@ -5,9 +5,9 @@ export default function Seal({variant, location}) {
 
     variant = variant? (variant-1):2
 
-    console.log('seal variant')
-    console.log(seals)
-    console.log(location)
+    // console.log('seal variant')
+    // console.log(seals)
+    // console.log(location)
 
    
     return (
@@ -15,7 +15,7 @@ export default function Seal({variant, location}) {
         <div className="seal" style={location}>
 
             <div className="seal-icon">
-                <img class="seal-color" src={seals[variant].src} style={seals[variant].style} />
+                <img className="seal-color" src={seals[variant].src} style={seals[variant].style} />
             </div>
         </div>
     )

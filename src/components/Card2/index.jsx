@@ -14,8 +14,9 @@ import CustomizedSwitches from './Switch';
 
 export default function Card2({ user }) {
 
-  const { name, grade, imgSrc, wish } = user
+  const { name, grade, imgSrc, wish, id } = user
 
+  console.log(user)
   const [showFront, setShowFront] = useState(true)
 
   function handleClipWish(){
@@ -32,7 +33,8 @@ export default function Card2({ user }) {
  
 
   return (
-    <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
+    <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }} id={id}>
+      <div id={`${id}`}></div>
       {cardContent}
     </Card>
   );

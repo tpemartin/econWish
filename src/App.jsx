@@ -6,7 +6,7 @@ import PlayIcon from '@mui/icons-material/PlayArrow';
 import NextIcon from '@mui/icons-material/FastForward';
 import PreviousIcon from '@mui/icons-material/FastRewind';
 import Card2 from './components/Card2';
-import { IconButton } from '@mui/material';
+import { IconButton, autocompleteClasses } from '@mui/material';
 import dataJson from "./data.json"
 import { Gallery, GalleryItem } from './components/Layout3';
 
@@ -15,59 +15,46 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import RecipeReviewCard from './components/Card2';
+import AppBar from './components/SearchAppBar';
+import SearchAppBar from './components/SearchAppBar';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 export default function App() {
 
-    console.log(dataJson)
+    // console.log(dataJson)
     const users = convertUsersToArrayOfObject(dataJson)
-
-    const style = {margin: "auto", width: "370px"};
-
+    window.users = users
+    window.autocompleteOptions = []
+    users.forEach(e=>
+        {
+            window.autocompleteOptions.push(
+                {
+                    label: e.name+' - '+e.grade,
+                    id: e.id
+                }
+            )
+        })
     const cards = users.map((e, i) => {
         return (
             <GalleryItem key={i}>
-                <Card2 user={e}/>
+                <Card2 user={e} />
                 {/* <Item sx={{height: "300px"}}/> */}
                 {/* <Card user={e} style={style}/>   */}
             </GalleryItem>
         )
     })
 
-    console.log(style)
-    console.log(users[0])
+   
     return (
         <div className="App">
-            
+            <div className="main2">
                 <Gallery>
-                {cards}
+                    {cards}
                 </Gallery>
-            
-            <NavbarCustom>
-                <NavbarItem>
-                    <IconButton>
-                        <PreviousIcon />
-                    </IconButton>
-                </NavbarItem>
-                <NavbarItem>
-                    {/* <PlayIcon/> */}
-                    <IconButton>
-                        <PlayIcon />
-                    </IconButton>
-                </NavbarItem>
-                <NavbarItem>
-                    <IconButton>
-                        <NextIcon />
-                    </IconButton>
-                </NavbarItem>
-            </NavbarCustom>
+            </div>
+            <div className="footer2">
+                <SearchAppBar autocompleteOptions={window.autocompleteOptions}/>
+            </div>
 
         </div>
     )
@@ -91,26 +78,12 @@ function getUser(targetUser, pos) {
             name: targetUser[pos.name],
             grade: targetUser[pos.grade],
             imgSrc: targetUser[pos.imgSrc],
-            wish: targetUser[pos.wish]
+            wish: targetUser[pos.wish],
+            id: targetUser[pos.id]
         }
     )
 }
 function getUserPositionIndex(user0) {
-    var pos = Object()
-    user0.map(
-        (e, i) => {
-            pos[e] = i
-        }
-    )
-    pos.imgSrc = pos.ThumbnailLink
-    pos.name = pos.Name
-    pos.grade = pos.Grade
-    pos.wish = pos.Wish
-    return pos
-}
-
-function test(){
-    user0 = ['Timestamp', 'Email Address', 'Name', 'Photo', 'Grade', 'Wish', 'ThumbnailLink']
     var pos = Object()
     user0.map(
         (e, i) => {
