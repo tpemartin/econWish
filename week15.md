@@ -1,8 +1,6 @@
 # useFetch
 
 
-# scrollIntoView
-
 # Autocomplete Search
 
   * reference: https://mui.com/material-ui/react-autocomplete/
@@ -24,20 +22,14 @@
         })
     ```
 
-      * `window` means in global environment. 
+      * `window` means `in global environment`. 
   * User interaction:
     * Input change: `onChange`
     * change event handler
     ```js
-    function(event) {
-      const value = event.target.value;
-      // fetch data
-      // update state
+    const handleOnChange = (event, newValue) => {
+      scrollToSearchedCard(newValue.id)
     }
     ```
-
-
-      * Get input name 
-      * Get id
-      * Get DOM element
-      * scrollIntoView    
+    * **change event** creates information `newValue` other than `event` object.
+    * `scrollToSearchedCard` is a function that scroll to the searched card using `scrollIntoView` method of the target DOM element.

@@ -49,9 +49,14 @@ export default function App() {
         <div className="App">
             <div className="main2">
                 <Gallery>
+                    <>
                     {cards}
+                    <div className="endCard"/>
+                    </>
                 </Gallery>
             </div>
+            {/* <SearchAppBar autocompleteOptions={window.autocompleteOptions}/> */}
+
             <div className="footer2">
                 <SearchAppBar autocompleteOptions={window.autocompleteOptions}/>
             </div>

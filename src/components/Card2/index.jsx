@@ -43,7 +43,7 @@ export default function Card2({ user }) {
 function Sender({ name, grade }) {
   return (
     <div className="sender">
-      <div className="label text-shadow">Sender:</div>
+      <div className="label text-shadow">From:</div>
       <div className="sender-info">
         <div className="sender-name">
           <div className="sender-name-text text-shadow">{name}</div>
