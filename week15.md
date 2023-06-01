@@ -113,7 +113,7 @@ The above two triggers are involved with:
 
 We need to attach the event handler to the DOM element. 
   * Find the DOM element in JSX.  
-    * [<ContentPostalFront />](https://github.com/tpemartin/econWish/blob/8652f38d00f98ddd6427fbddcfcad4bbbe9fcbee/src/components/Card2/index.jsx#L77) > [<Button/>](https://github.com/tpemartin/econWish/blob/8652f38d00f98ddd6427fbddcfcad4bbbe9fcbee/src/components/Card2/index.jsx#LL92C11-L92C11)
+    * [`<ContentPostalFront />`](https://github.com/tpemartin/econWish/blob/8652f38d00f98ddd6427fbddcfcad4bbbe9fcbee/src/components/Card2/index.jsx#L77) 's [`<Button/>`](https://github.com/tpemartin/econWish/blob/8652f38d00f98ddd6427fbddcfcad4bbbe9fcbee/src/components/Card2/index.jsx#LL92C11-L92C11) element.
   * Add `onClick` attribute to the DOM element and set it to the event handler function via:
     * `onClick={event handler}`
 
