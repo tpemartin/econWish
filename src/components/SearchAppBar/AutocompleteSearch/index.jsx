@@ -31,8 +31,6 @@ export default function AutoCompleteSearch({options}) {
       )}
       sx={{ width: "200px", backgroundColor: "white" }}
       onChange={handleOnChange}
-      
-      
     />
   );
 }
