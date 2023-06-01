@@ -16,7 +16,7 @@ export default function Card2({ user }) {
 
   const { name, grade, imgSrc, wish, id } = user
 
-  console.log(user)
+  // console.log(user)
   const [showFront, setShowFront] = useState(true)
 
   function handleClipWish(){

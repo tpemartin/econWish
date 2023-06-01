@@ -9,6 +9,8 @@ export default function AutoCompleteSearch({options}) {
 
  
   const handleOnChange = (event, newValue) => {
+    console.log(event)
+    console.log(newValue)
     scrollToSearchedCard(newValue.id)
   }
   

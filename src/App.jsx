@@ -12,17 +12,21 @@ export default function App() {
 
     const [data, setData] = useState(null)
     
-    // axios.get is an asyncronous function
+
+    React.useEffect(() => {
+          // axios.get is an asyncronous function
     // you use .then chain with input function that takes
     //  * previous chain's return as input
     axios.get(appConfig.entryUrl)
-        .then((response) => {
-            console.log(response)
-            if(response.status===200){
-                setData(response.data)
-            }
-        })
-    
+    .then((response) => {
+        // console.log(response)
+        if(response.status===200){
+            setData(response.data)
+        }
+    })
+
+    },[appConfig])
+
     // data null means false
     // data is a state variable. this makes appcontent a state-dependent 
     // component
@@ -75,7 +79,7 @@ function getUserPositionIndex(user0) {
 }
 
 function AppContent({ users }) {
-    console.log(users)
+    
     // window.users means there is a global variable named users
     window.users = users
     window.autocompleteOptions = [] // autocompleteOptions is a global variable
