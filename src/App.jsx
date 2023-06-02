@@ -5,38 +5,38 @@ import { Gallery, GalleryItem } from './components/Layout3';
 import appConfig from "./appConfig.json"
 import SearchAppBar from './components/SearchAppBar';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card2 from './components/Card2';
 
 export default function App() {
 
     const [data, setData] = useState(null)
-    
 
-    React.useEffect(() => {
-          // axios.get is an asyncronous function
-    // you use .then chain with input function that takes
-    //  * previous chain's return as input
-    axios.get(appConfig.entryUrl)
-    .then((response) => {
-        // console.log(response)
-        if(response.status===200){
-            setData(response.data)
-        }
-    })
 
-    },[appConfig])
+    useEffect(() => {
+        // axios.get is an asyncronous function
+        // you use .then chain with input function that takes
+        //  * previous chain's return as input
+        axios.get(appConfig.entryUrl)
+            .then((response) => {
+                console.log(response)
+                if (response.status === 200) {
+                    setData(response.data)
+                }
+            })
+
+    }, [appConfig])
 
     // data null means false
     // data is a state variable. this makes appcontent a state-dependent 
     // component
-    let appcontent = data ? 
-        <AppContent users={convertUsersToArrayOfObject(data)}/>:
+    let appcontent = data ?
+        <AppContent users={convertUsersToArrayOfObject(data)} /> :
         <div>Loading...</div>
 
     return (
         <div className="App">
-          {appcontent}
+            {appcontent}
         </div>
     )
 }
@@ -79,7 +79,7 @@ function getUserPositionIndex(user0) {
 }
 
 function AppContent({ users }) {
-    
+
     // window.users means there is a global variable named users
     window.users = users
     window.autocompleteOptions = [] // autocompleteOptions is a global variable
