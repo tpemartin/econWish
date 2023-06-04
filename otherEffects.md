@@ -10,6 +10,21 @@ https://tpemartin.github.io/econWish/#1zrBNswpDnQ7groX2osHuIz2YhV75Ksee
 ```
 where `#1zrBNswpDnQ7groX2osHuIz2YhV75Ksee` is the hash. It is usually used to store the state of the app that the user wants its url to be bookmarked. Here the state we choose to store is the id of the card that the user is interested in.
 
+Later when a user visits the url, we can use the hash to scroll the designated card into view, via the following code:
+```js
+function scrollIntoViewWithHashId() {
+    const hash = window.location.hash;
+    if (hash) {
+        const id = hash.slice(1);
+        //console.log(id)
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView();
+        }
+    }
+}
+```
+
 To obtain the url hash, use `window.location.hash`.
 
 ### Copy link button
@@ -64,27 +79,22 @@ This means the checking then action part is an effect. Therefore, we need to use
   * [react-share](https://www.npmjs.com/package/react-share)
 
 
-# Image 
+# Performance improvement
 
-We can download image from image src url using `fetch` and `blob`.
 
-  * [How to download an image with JavaScript](https://ourcodeworld.com/articles/read/189/how-to-download-an-image-with-javascript-in-the-browser)
+## Image Skeleton
 
-Then use it in `<img>` in react js like
-```js
-const imageSrc = URL.createObjectURL(imageBlob)
-const imageAlt = 'image'
-```
+A blob is a file-like object of immutable, raw data; they can be read as text or binary data, or converted into a ReadableStream so its methods can be used for processing the data.
 
-## Axios
-
-To use axios to download image blob, we need to set `responseType` to `blob`:
+To download image blob with `axios`, we need to set `responseType` to `blob`:
 ```js
 axios.get(imageUrl, { responseType: 'blob' })
+ .then(response => {
+    const imageBlob = response.data
+    const imageSrc = URL.createObjectURL(imageBlob)
+    const imageAlt = 'image'})
 ```
 
+  * `response.data` is the image blob, 
+  * which can be converted to image src url using `URL.createObjectURL(imageBlob)`. That later can be used in `<img>` in react js like `<img src={imageSrc} alt={imageAlt} />`.
 
-
-```html 
-<img src={imageSrc} alt={imageAlt} />
-```

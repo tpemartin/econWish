@@ -117,6 +117,7 @@ function AppContent({ users }) {
     useEffect(() => {
         scrollIntoViewWithHashId()
     }, [])
+
     return (
         <div>
             <SearchAppBar autocompleteOptions={window.autocompleteOptions} />
@@ -164,8 +165,14 @@ function ShareBar({shareLink, title }){
                     justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
                 }}>
                 <LinkIcon sx={{ fill: "white", margin: "auto" }} onClick={()=>{
+                    console.log(shareLink)
                     navigator.clipboard.writeText(shareLink)
-                    alert("已複製連結")
+                      .then(() => {
+                        alert("已複製連結")})
+                   
+
+                    // navigator.clipboard.writeText(shareLink)
+                    // alert(shareLink+"已複製連結")
                 }} />
             </Stack>
 
@@ -184,7 +191,7 @@ function scrollIntoViewWithHashId() {
         //console.log(id)
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView();
+            element.scrollIntoView({block: "start", inline: "nearest"});
         }
     }
 }
