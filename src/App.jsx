@@ -3,7 +3,6 @@ import './App.css'
 import dataJson from "./data.json"
 import { Gallery, GalleryItem } from './components/Layout3';
 import appConfig from "./appConfig.json"
-import SearchAppBar from './components/SearchAppBar';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card2 from './components/Card2';
@@ -11,6 +10,7 @@ import { EmailShareButton, FacebookIcon, FacebookShareButton, LineIcon, LineShar
 import { Stack } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
 import { MailOutlineOutlined } from '@mui/icons-material';
+import SearchAppBar from './components/SearchAppBarTop';
 
 export default function App() {
 
@@ -107,6 +107,7 @@ function AppContent({ users }) {
 
         return (
             <GalleryItem key={i}>
+                
                 <Card2 user={e} />
                 <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={e.name + ' - ' + e.grade} />
             </GalleryItem>
@@ -117,7 +118,8 @@ function AppContent({ users }) {
         scrollIntoViewWithHashId()
     }, [])
     return (
-        <>
+        <div>
+            <SearchAppBar autocompleteOptions={window.autocompleteOptions} />
             <div className="main2">
                 <Gallery>
                     <>
@@ -127,10 +129,10 @@ function AppContent({ users }) {
                 </Gallery>
             </div>
 
-            <div className="footer2">
+            {/* <div className="footer2">
                 <SearchAppBar autocompleteOptions={window.autocompleteOptions} />
-            </div>
-        </>
+            </div> */}
+        </div>
 
     )
 

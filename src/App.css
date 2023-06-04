@@ -36,7 +36,7 @@
   height: 840px;
    */
   width: 100%;
-  height: 100%;
+  height: 100vh;
    background: #dbe8f6;
   
   
@@ -48,9 +48,11 @@
   }
 }
 .main2 {
-  height: calc(100% - 64px);
-  overflow-y: auto;
-  overflow-x: hidden;
+  /* height: calc(100% - 64px);
+  overflow-y: scroll; 
+  overflow-x: hidden;*/
+  background-color: #dbe8f6;
+  padding-top: 10px;
 }
 .footer2 {
   position: fixed;
