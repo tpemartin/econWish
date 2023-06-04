@@ -7,6 +7,10 @@ import SearchAppBar from './components/SearchAppBar';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card2 from './components/Card2';
+import { EmailShareButton, FacebookIcon, FacebookShareButton, LineIcon, LineShareButton, LinkedinShareButton } from 'react-share';
+import { Stack } from '@mui/material';
+import LinkIcon from '@mui/icons-material/Link';
+import { MailOutlineOutlined } from '@mui/icons-material';
 
 export default function App() {
 
@@ -35,9 +39,11 @@ export default function App() {
         <div>Loading...</div>
 
     return (
+
         <div className="App">
             {appcontent}
         </div>
+
     )
 }
 
@@ -92,14 +98,24 @@ function AppContent({ users }) {
         )
     })
     const cards = users.map((e, i) => {
+
+        function copyLink() {
+            url = appConfig.appUrl + '#' + e.id
+            navigator.clipboard.writeText(url)
+            alert("已複製連結")
+        }
+
         return (
             <GalleryItem key={i}>
                 <Card2 user={e} />
-                {/* <Item sx={{height: "300px"}}/> */}
-                {/* <Card user={e} style={style}/>   */}
+                <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={e.name + ' - ' + e.grade} />
             </GalleryItem>
         )
     })
+
+    useEffect(() => {
+        scrollIntoViewWithHashId()
+    }, [])
     return (
         <>
             <div className="main2">
@@ -119,4 +135,54 @@ function AppContent({ users }) {
     )
 
 }
+function ShareBar({shareLink, title }){
+    return(
+        <div className="share">
+        <Stack direction="row" spacing={2} sx={{ justifyContent: "center", marginTop: "10px" }}>
+            <LineShareButton url={shareLink} title={title}>
+                <LineIcon size={32} round={true} />
+            </LineShareButton>
+            <FacebookShareButton url={shareLink} quote={title}>
+                <FacebookIcon size={32} round={true} sx={{ fill: "#787878" }} />
+            </FacebookShareButton>
+            <EmailShareButton url={shareLink} subject={title}>
+                <Stack sx={{
+                    cursor: "pointer",
+                    marginTop: "-7px",
+                    justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
+                }}>
 
+                    <MailOutlineOutlined sx={{ fill: "white", margin: "auto" }} />
+                </Stack>
+            </EmailShareButton>
+
+            <Stack
+                sx={{
+                    cursor: "pointer",
+                    justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
+                }}>
+                <LinkIcon sx={{ fill: "white", margin: "auto" }} onClick={()=>{
+                    navigator.clipboard.writeText(shareLink)
+                    alert("已複製連結")
+                }} />
+            </Stack>
+
+
+            {/* <Like href={appConfig.appUrl + '#' + e.id} colorScheme="dark"/> */}
+
+        </Stack>
+    </div>
+
+    )
+}
+function scrollIntoViewWithHashId() {
+    const hash = window.location.hash;
+    if (hash) {
+        const id = hash.slice(1);
+        //console.log(id)
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView();
+        }
+    }
+}

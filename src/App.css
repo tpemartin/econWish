@@ -70,3 +70,10 @@
   width: 0.1px;
   height: 80px;
 }
+.share {
+  mix-blend-mode: luminosity;
+}
+.rounded-icon {
+  background: #1a1a1a;
+  border-radius: 36px;
+}
