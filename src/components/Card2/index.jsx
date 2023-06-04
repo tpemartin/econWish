@@ -9,8 +9,9 @@ import Stack from '@mui/material/Stack';
 import { Box, Button, Container } from '@mui/material';
 import Image from "mui-image"
 import CloseIcon from '@mui/icons-material/Close';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CustomizedSwitches from './Switch';
+import axios from 'axios';
 
 export default function Card2({ user }) {
 
@@ -25,6 +26,10 @@ export default function Card2({ user }) {
   function handleCloseBackContent(){
     setShowFront(true)
   }
+
+  useEffect(() => {
+    axios.get(imgSrc).then(res => {
+      console.log(res)})}, [])
 
   var cardContent = showFront ?
     <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :

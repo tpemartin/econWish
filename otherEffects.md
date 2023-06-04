@@ -62,3 +62,29 @@ This means the checking then action part is an effect. Therefore, we need to use
 # Share
 
   * [react-share](https://www.npmjs.com/package/react-share)
+
+
+# Image 
+
+We can download image from image src url using `fetch` and `blob`.
+
+  * [How to download an image with JavaScript](https://ourcodeworld.com/articles/read/189/how-to-download-an-image-with-javascript-in-the-browser)
+
+Then use it in `<img>` in react js like
+```js
+const imageSrc = URL.createObjectURL(imageBlob)
+const imageAlt = 'image'
+```
+
+## Axios
+
+To use axios to download image blob, we need to set `responseType` to `blob`:
+```js
+axios.get(imageUrl, { responseType: 'blob' })
+```
+
+
+
+```html 
+<img src={imageSrc} alt={imageAlt} />
+```

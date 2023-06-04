@@ -2,6 +2,10 @@
 import Image from "mui-image"
 import "./index.css"
 import Seal from "./Seal"
+import axios from "axios"
+import { useEffect } from "react"
+import { Skeleton } from "@mui/material"
+import { useState } from "react"
 
 export default function PostedStamp({ imgSrc, sealVariant, sealLocation }) {
 
@@ -21,12 +25,29 @@ export default function PostedStamp({ imgSrc, sealVariant, sealLocation }) {
   )
 }
 function Stamp({ imgSrc }) {
+
+  const [localSrc, setLocalSrc] = useState(null)
+
+  useEffect(() => {
+    axios.get(imgSrc, { responseType: 'blob' })
+      .then(response => {
+        console.log(response)
+        const imageSrc = URL.createObjectURL(response.data)
+        setLocalSrc(imageSrc)
+        // console.log(imageSrc)
+      })
+    },[imgSrc])
+
   return (
     <div className="stamp">
-      <Image
-        duration={0}
-        src={imgSrc}
-      />
+      {
+        localSrc ? 
+          <Image 
+            duration={0}
+            src={localSrc}/>:
+          <Skeleton variant="rectangular" width={222} height={284} />
+      }
+      
     </div>
 
   )
