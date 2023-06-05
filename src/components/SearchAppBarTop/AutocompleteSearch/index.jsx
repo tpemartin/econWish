@@ -17,25 +17,25 @@ export default function AutoCompleteSearch({ options }) {
 
 
   return (
-    
-      <Autocomplete
-        freeSolo
-        id="search"
-        disableClearable
-        options={options}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Search input"
-            InputProps={{
-              ...params.InputProps,
-              type: 'search',
-            }}
-          />
-        )}
-        sx={{ width: "200px", backgroundColor: "white" }}
-        onChange={handleOnChange}
-      />
+
+    <Autocomplete
+      freeSolo
+      id="search"
+      disableClearable
+      options={options}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Search input"
+          InputProps={{
+            ...params.InputProps,
+            type: 'search',
+          }}
+        />
+      )}
+      sx={{ width: "200px", backgroundColor: "white" }}
+      onChange={handleOnChange}
+    />
 
   );
 }

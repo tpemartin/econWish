@@ -13,7 +13,7 @@ export default function PostedStamp({ imgSrc, sealVariant, sealLocation }) {
   // console.log(sealVariant)
   // sealVariant = sealVariant? (sealVariant-1) : 2
   sealLocation = sealLocation ? sealLocation : { left: "-10px", bottom: "-50px", transform: "rotate(-45deg)" }
-   
+
   // sealVariant = 1
   // sealLocation = { left: "10px", bottom: "-80px", transform: "rotate(45deg)" }
 
@@ -31,23 +31,23 @@ function Stamp({ imgSrc }) {
   useEffect(() => {
     axios.get(imgSrc, { responseType: 'blob' })
       .then(response => {
-        console.log(response)
+        // console.log(response)
         const imageSrc = URL.createObjectURL(response.data)
         setLocalSrc(imageSrc)
         // console.log(imageSrc)
       })
-    },[imgSrc])
+  }, [imgSrc])
 
   return (
     <div className="stamp">
       {
-        localSrc ? 
-          <Image 
+        localSrc ?
+          <Image
             duration={0}
-            src={localSrc}/>:
+            src={localSrc} /> :
           <Skeleton variant="rectangular" width={222} height={284} />
       }
-      
+
     </div>
 
   )

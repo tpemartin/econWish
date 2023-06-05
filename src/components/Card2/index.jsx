@@ -20,26 +20,28 @@ export default function Card2({ user }) {
   // console.log(user)
   const [showFront, setShowFront] = useState(true)
 
-  function handleClipWish(){
+  function handleClipWish() {
     setShowFront(false)
   }
-  function handleCloseBackContent(){
+  function handleCloseBackContent() {
     setShowFront(true)
   }
 
   useEffect(() => {
     axios.get(imgSrc).then(res => {
-      console.log(res)})}, [])
+      console.log(res)
+    })
+  }, [])
 
   var cardContent = showFront ?
     <ContentPostalFront imgSrc={imgSrc} sealVariant={5} name={name} grade={grade} wish={wish} onClick={handleClipWish} /> :
     <ContentPostalBack imgSrc={imgSrc} wish={wish} onClick={handleCloseBackContent} />
 
- 
+
 
   return (
-    <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }} id={id}>
-      <div id={`${id}`}></div>
+    <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
+      <div id={`${id}`} className='card-id'></div>
       {cardContent}
     </Card>
   );
@@ -107,16 +109,16 @@ function ContentPostalBack({ imgSrc, wish, onClick }) {
 
   const [showPic, setShowPic] = useState(false)
 
-  function handleToggle(){
-    if(showPic){ 
+  function handleToggle() {
+    if (showPic) {
       setShowPic(false)
     } else {
       setShowPic(true)
     }
-  } 
-  
-  var op = showPic? 1: 0.3
-  var vs = showPic?  "hidden": "visible"
+  }
+
+  var op = showPic ? 1 : 0.3
+  var vs = showPic ? "hidden" : "visible"
 
   return (
 
@@ -139,8 +141,8 @@ function ContentPostalBack({ imgSrc, wish, onClick }) {
           </Container>
         </Stack>
       </div>
-      <div style={{ position: "absolute", bottom: "0%" , width: "100%"}}>
-        <Container><CustomizedSwitches onChange={handleToggle}/></Container>
+      <div style={{ position: "absolute", bottom: "0%", width: "100%" }}>
+        <Container><CustomizedSwitches onChange={handleToggle} /></Container>
       </div>
       <IconButton
         aria-label="close"

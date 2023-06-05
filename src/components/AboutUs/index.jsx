@@ -1,14 +1,13 @@
 import * as React from 'react';
-
-/*MUI Image List */
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { Avatar, Container, Typography } from '@mui/material';
 
 export default function AbuotUs() {
 
     return (<>
-        <div className="card" style={{
+        {/* <div className="card" style={{
             height: 683, width: 416, background: "white",
             display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: 0
         }}>
@@ -17,8 +16,18 @@ export default function AbuotUs() {
                 <p style={{ margin: 0 }}>也許有一天記憶會消失</p>
                 <p style={{ margin: 0 }}>但某些夥伴永遠留在我們的生命中裡</p>
                 <p style={{ margin: 0 }}>願能助你走得更遠</p>
-            </div>
-            <TitlebarBelowImageList />
+            </div> */}
+        <div style={{backgroundColor: "white", height: "100%"}}>
+            <Container>
+                <Typography variant="h6" component="div" gutterBottom>
+                關於我們
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                也許有一天記憶會消失
+                </Typography>
+                <TitlebarBelowImageList/>
+            </Container>
+            
         </div>
 
 
@@ -92,7 +101,8 @@ function TitlebarBelowImageList() {
 
     return (
         <ImageList sx={{
-            width: 370, height: 450, flexWrap: "nowrap", transform: "translateZ(0)",
+            margin: "auto",
+            width: 370, height: "100%", flexWrap: "nowrap", transform: "translateZ(0)",
             '-ms-overflow-style': 'none',
             'scrollbar-width': 'none',
             "&::-webkit-scrollbar": { display: "none" }
@@ -100,17 +110,22 @@ function TitlebarBelowImageList() {
         }}>
             {itemData.map((item) => (
                 <ImageListItem key={item.img}>
-                    <img
-                        src={`${item.img}?w=248&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                        alt={item.title}
-                        loading="lazy"
-                    />
-                    <ImageListItemBar
-                        title={item.title}
-                        subtitle={<span>by: {item.author}</span>}
-                        position="below"
-                    />
+                     
+                        <Avatar
+                            sx={{margin: "auto"}}
+                            src={`${item.img}?w=248&fit=crop&auto=format`}
+                            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            alt={item.title}
+                            loading="lazy"
+                        />
+
+                        <ImageListItemBar
+                            title={item.title}
+                            subtitle={<span>by: {item.author}</span>}
+                            position="below"
+                        />
+                   
+
                 </ImageListItem>
             ))}
         </ImageList>

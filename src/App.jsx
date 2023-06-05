@@ -11,6 +11,7 @@ import { Stack } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
 import { MailOutlineOutlined } from '@mui/icons-material';
 import SearchAppBar from './components/SearchAppBarTop';
+import AboutUs from './components/AboutUs';
 
 export default function App() {
 
@@ -36,12 +37,16 @@ export default function App() {
     // component
     let appcontent = data ?
         <AppContent users={convertUsersToArrayOfObject(data)} /> :
-        <div>Loading...</div>
+        <div style={{color: "black"}}>Loading...</div>
 
     return (
 
         <div className="App">
-            {appcontent}
+            {/* <AboutUs /> */}
+            {
+             appcontent
+                
+            }
         </div>
 
     )
@@ -99,15 +104,9 @@ function AppContent({ users }) {
     })
     const cards = users.map((e, i) => {
 
-        function copyLink() {
-            url = appConfig.appUrl + '#' + e.id
-            navigator.clipboard.writeText(url)
-            alert("已複製連結")
-        }
-
         return (
             <GalleryItem key={i}>
-                
+
                 <Card2 user={e} />
                 <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={e.name + ' - ' + e.grade} />
             </GalleryItem>
@@ -138,49 +137,50 @@ function AppContent({ users }) {
     )
 
 }
-function ShareBar({shareLink, title }){
-    return(
+function ShareBar({ shareLink, title }) {
+    return (
         <div className="share">
-        <Stack direction="row" spacing={2} sx={{ justifyContent: "center", marginTop: "10px" }}>
-            <LineShareButton url={shareLink} title={title}>
-                <LineIcon size={32} round={true} />
-            </LineShareButton>
-            <FacebookShareButton url={shareLink} quote={title}>
-                <FacebookIcon size={32} round={true} sx={{ fill: "#787878" }} />
-            </FacebookShareButton>
-            <EmailShareButton url={shareLink} subject={title}>
-                <Stack sx={{
-                    cursor: "pointer",
-                    marginTop: "-7px",
-                    justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
-                }}>
+            <Stack direction="row" spacing={2} sx={{ justifyContent: "center", marginTop: "10px" }}>
+                <LineShareButton url={shareLink} title={title}>
+                    <LineIcon size={32} round={true} />
+                </LineShareButton>
+                <FacebookShareButton url={shareLink} quote={title}>
+                    <FacebookIcon size={32} round={true} sx={{ fill: "#787878" }} />
+                </FacebookShareButton>
+                <EmailShareButton url={shareLink} subject={title}>
+                    <Stack sx={{
+                        cursor: "pointer",
+                        marginTop: "-7px",
+                        justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
+                    }}>
 
-                    <MailOutlineOutlined sx={{ fill: "white", margin: "auto" }} />
+                        <MailOutlineOutlined sx={{ fill: "white", margin: "auto" }} />
+                    </Stack>
+                </EmailShareButton>
+
+                <Stack
+                    sx={{
+                        cursor: "pointer",
+                        justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
+                    }}>
+                    <LinkIcon sx={{ fill: "white", margin: "auto" }} onClick={() => {
+                        console.log(shareLink)
+                        navigator.clipboard.writeText(shareLink)
+                            .then(() => {
+                                alert("已複製連結")
+                            })
+
+
+                        // navigator.clipboard.writeText(shareLink)
+                        // alert(shareLink+"已複製連結")
+                    }} />
                 </Stack>
-            </EmailShareButton>
 
-            <Stack
-                sx={{
-                    cursor: "pointer",
-                    justifyContent: "center", width: "32px", height: "32px", backgroundColor: "#1a1a1a", borderRadius: "32px"
-                }}>
-                <LinkIcon sx={{ fill: "white", margin: "auto" }} onClick={()=>{
-                    console.log(shareLink)
-                    navigator.clipboard.writeText(shareLink)
-                      .then(() => {
-                        alert("已複製連結")})
-                   
 
-                    // navigator.clipboard.writeText(shareLink)
-                    // alert(shareLink+"已複製連結")
-                }} />
+                {/* <Like href={appConfig.appUrl + '#' + e.id} colorScheme="dark"/> */}
+
             </Stack>
-
-
-            {/* <Like href={appConfig.appUrl + '#' + e.id} colorScheme="dark"/> */}
-
-        </Stack>
-    </div>
+        </div>
 
     )
 }
@@ -191,7 +191,7 @@ function scrollIntoViewWithHashId() {
         //console.log(id)
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({block: "start", inline: "nearest"});
+            element.scrollIntoView({ block: "start", inline: "nearest" });
         }
     }
 }
