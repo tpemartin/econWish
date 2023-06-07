@@ -40,7 +40,7 @@ export default function Card2({ user }) {
 
 
   return (
-    <Card sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
+    <Card className='border-image' sx={{ maxWidth: 345, margin: "auto", height: 587 }}>
       <div id={`${id}`} className='card-id'></div>
       {cardContent}
     </Card>
