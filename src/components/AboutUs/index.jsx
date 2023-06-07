@@ -2,7 +2,7 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import { Avatar, Container, Typography } from '@mui/material';
+import { Avatar, Container, Stack, Typography } from '@mui/material';
 
 export default function AbuotUs() {
 
@@ -19,12 +19,14 @@ export default function AbuotUs() {
             </div> */}
         <div style={{backgroundColor: "white", height: "100%"}}>
             <Container>
-                <Typography variant="h6" component="div" gutterBottom>
+                <Stack sx={{margin:"auto"}} pb={2}>
+                <Typography variant="h6" component="div" gutterBottom sx={{margin: "auto"}} >
                 關於我們
                 </Typography>
-                <Typography variant="body1" gutterBottom>
+                <Typography variant="body1" gutterBottom sx={{margin: "auto"}} >
                 也許有一天記憶會消失
                 </Typography>
+                </Stack>
                 <TitlebarBelowImageList/>
             </Container>
             
@@ -123,6 +125,7 @@ function TitlebarBelowImageList() {
                             title={item.title}
                             subtitle={<span>by: {item.author}</span>}
                             position="below"
+                            sx={{margin: "auto"}}
                         />
                    
 

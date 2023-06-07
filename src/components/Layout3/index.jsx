@@ -9,9 +9,9 @@ export function Gallery({children}){
         </Grid2>
     )
 }
-export function GalleryItem({children}){
+export function GalleryItem({className, children}){
     return(
-        <Grid2 item="true" xs={12} sm={"auto"} md={6} lg={4} xl={3} >
+        <Grid2 item="true" xs={12} sm={"auto"} md={6} lg={4} xl={3} className={className} >
             
             {children}
             

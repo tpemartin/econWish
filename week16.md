@@ -54,3 +54,9 @@ Therefore, the entire block is the effect part.
 ## Lifecycle of a React Component
 
   * <https://www.w3schools.com/react/react_lifecycle.asp>
+
+# Unmount React components
+
+  * <https://stackoverflow.com/questions/51708436/how-to-unmount-a-component-in-react>
+
+To remove a react component, we can use `ReactDOM.unmountComponentAtNode()`.

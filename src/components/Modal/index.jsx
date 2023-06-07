@@ -7,7 +7,7 @@ import AbuotUs from '../AboutUs';
 import SendIcon from '@mui/icons-material/Send';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { IconButton, Stack } from '@mui/material';
-
+import Fab from '@mui/material/Fab';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -18,31 +18,44 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     color: "black",
+    maxWidth: "450px",
     p: 4,
 };
 
-export function AboutUsModal() {
+export function AboutUsModal({fab}) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const button = fab ? (<Stack sx={{ justifyContent: "center" }} mr={3}>
+
+        <IconButton
+            
+            onClick={handleOpen}
+            size="small"
+            edge="start"
+            color="#091e32"
+            aria-label="open drawer"
+        >
+            <InfoOutlinedIcon />
+        </IconButton>
+
+        <Typography>
+        設計團隊
+        </Typography>
+
+    </Stack>) :(
+        <Fab 
+        size="small"
+        onClick={handleOpen}
+        color="#091e32" aria-label="edit">     
+         
+         <InfoOutlinedIcon />
+     </Fab>
+    )
     return (
         <>
-            <Stack>
-                <IconButton
-                    onClick={handleOpen}
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                // sx={{ mr: 2 }}
-                >
-                    <InfoOutlinedIcon />
-                </IconButton>
-                <Typography>
-                    設計團隊
-                </Typography>
-            </Stack>
+            {button}
             {/* <Button onClick={handleOpen}>Open modal</Button> */}
             <Modal
                 open={open}
@@ -58,31 +71,41 @@ export function AboutUsModal() {
     );
 }
 
-export function SendPostCardModal() {
+export function SendPostCardModal({ fab }) {
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const button = (fab) ? (<Stack sx={{ justifyContent: "center" }} mr={3}>
+
+        <IconButton
+            onClick={handleOpen}
+            size="small"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+        >
+            <SendIcon />
+        </IconButton>
+
+        <Typography>
+            寄明信片
+        </Typography>
+
+    </Stack>) :(
+        <Fab 
+        size="small"
+        onClick={handleOpen}
+        color="#091e32" aria-label="edit">     
+         
+         <SendIcon />
+     </Fab>
+    )
     return (
         <>
-            <Stack sx={{ justifyContent: "center" }} mr={3}>
+            {button}
 
-                <IconButton
-                    onClick={handleOpen}
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                // sx={{ mr: 2 }}
-                >
-                    <SendIcon />
-                </IconButton>
-                <Typography>
-                    寄明信片
-                </Typography>
-
-            </Stack>
-            {/* <Button onClick={handleOpen}>Open modal</Button> */}
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -94,6 +117,7 @@ export function SendPostCardModal() {
                     <Typography>每個人只能送出一張明信片，若送出多次則只保留最後一次送出之明信片。</Typography>
                 </Box>
             </Modal>
+
         </>
     );
 }

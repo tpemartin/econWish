@@ -7,11 +7,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card2 from './components/Card2';
 import { EmailShareButton, FacebookIcon, FacebookShareButton, LineIcon, LineShareButton, LinkedinShareButton } from 'react-share';
-import { Stack } from '@mui/material';
+import { IconButton, Stack } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
-import { MailOutlineOutlined } from '@mui/icons-material';
+import { MailOutlineOutlined, Menu } from '@mui/icons-material';
 import SearchAppBar from './components/SearchAppBarTop';
 import AboutUs from './components/AboutUs';
+import ChangeCircleOutlinedIcon from '@mui/icons-material/ChangeCircleOutlined';
+import SimpleSlide from './components/SlideButton';
+import FloatingActionButtons, { FloatingActionButtonGroup } from './components/FAB';
 
 export default function App() {
 
@@ -47,6 +50,7 @@ export default function App() {
              appcontent
                 
             }
+            
         </div>
 
     )
@@ -104,8 +108,9 @@ function AppContent({ users }) {
     })
     const cards = users.map((e, i) => {
 
+
         return (
-            <GalleryItem key={i}>
+            <GalleryItem key={i} className={e.grade}>
 
                 <Card2 user={e} />
                 <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={e.name + ' - ' + e.grade} />
@@ -117,8 +122,10 @@ function AppContent({ users }) {
         scrollIntoViewWithHashId()
     }, [])
 
+  
     return (
         <div>
+            
             <SearchAppBar autocompleteOptions={window.autocompleteOptions} />
             <div className="main2">
                 <Gallery>
@@ -128,10 +135,9 @@ function AppContent({ users }) {
                     </>
                 </Gallery>
             </div>
-
-            {/* <div className="footer2">
-                <SearchAppBar autocompleteOptions={window.autocompleteOptions} />
-            </div> */}
+            <FloatingActionButtons autocompleteOptions={autocompleteOptions}/>
+            
+            
         </div>
 
     )

@@ -13,6 +13,7 @@ import SendIcon from '@mui/icons-material/Send';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { Container, Stack } from '@mui/material';
 import {  AboutUsModal,SendPostCardModal } from '../Modal';
+import SelectGrade from '../SelectGrade';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -60,30 +61,23 @@ export default function SearchAppBar({ autocompleteOptions }) {
     return (
 
         <AppBar position="sticky">
-            <Toolbar>
-                <SendPostCardModal/>
-                <AboutUsModal/>
+            <Toolbar sx={{justifyContent: "center"}}>
+                {/* <SendPostCardModal/>
+                <AboutUsModal/> */}
                 
-                <Typography
+                {/* <Typography
                     variant="h6"
                     noWrap
                     component="div"
                     sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                 >
                     MUI
-                </Typography>
-
-
+                </Typography> */}
                 <Search>
-                    <AutoCompleteSearch options={autocompleteOptions} />
-                    {/* <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            /> */}
+                <SelectGrade/>
                 </Search>
+                
+                
             </Toolbar>
         </AppBar>
 
