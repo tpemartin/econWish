@@ -15,8 +15,8 @@
 
 }
 .border-image {
-    padding: 1em;
-    border: 16px solid transparent;
+    padding: 0.3em;
+    border: 10px solid transparent;
     border-image: 16 repeating-linear-gradient(-45deg,
      red 0, red 1em,
      transparent 0, transparent 2em,
