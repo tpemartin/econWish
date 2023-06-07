@@ -17,7 +17,7 @@ export default function AbuotUs() {
                 <p style={{ margin: 0 }}>但某些夥伴永遠留在我們的生命中裡</p>
                 <p style={{ margin: 0 }}>願能助你走得更遠</p>
             </div> */}
-        <div style={{backgroundColor: "white", height: "100%"}}>
+        
             <Container>
                 <Stack sx={{margin:"auto"}} pb={2}>
                 <Typography variant="h6" component="div" gutterBottom sx={{margin: "auto"}} >
@@ -30,8 +30,7 @@ export default function AbuotUs() {
                 <TitlebarBelowImageList/>
             </Container>
             
-        </div>
-
+       
 
 
     </>)
@@ -104,7 +103,7 @@ function TitlebarBelowImageList() {
     return (
         <ImageList sx={{
             margin: "auto",
-            width: 370, height: "100%", flexWrap: "nowrap", transform: "translateZ(0)",
+             height: "100%", flexWrap: "nowrap", transform: "translateZ(0)",
             '-ms-overflow-style': 'none',
             'scrollbar-width': 'none',
             "&::-webkit-scrollbar": { display: "none" }
@@ -123,7 +122,7 @@ function TitlebarBelowImageList() {
 
                         <ImageListItemBar
                             title={item.title}
-                            subtitle={<span>by: {item.author}</span>}
+                            // subtitle={<span>by: {item.author}</span>}
                             position="below"
                             sx={{margin: "auto"}}
                         />
