@@ -84,7 +84,7 @@ export function FloatingActionButtonGroup({autocompleteOptions}) {
             <AboutUsModal />
             <SendPostCardModal />
 
-            <Fab variant="extended">
+            <Fab variant="extended" size="small">
                 <SearchIcon sx={{ mr: 1 }} />
                 <AutoCompleteSearch options={autocompleteOptions} />
             </Fab>
