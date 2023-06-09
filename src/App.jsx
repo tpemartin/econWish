@@ -54,7 +54,7 @@ export default function App() {
                 
             }
             <Helmet>
-                <meta property='og:image' content={appLogo} />    
+                <meta property='og:image' content={"https://tpemartin.github.io"+appLogo} />    
                 <meta property="og:url" content="https://tpemartin.github.io/econWish/"/>
             </Helmet>    
         </div>
@@ -131,7 +131,7 @@ function AppContent({ users }) {
             <GalleryItem key={i} className={e.grade}>
                 
                 <Card2 user={e} />
-                <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={e.name + ' - ' + e.grade} />
+                <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={'來自 '+e.name + ' - ' + e.grade+' 的祝賀'} />
             </GalleryItem>
         )
     })
