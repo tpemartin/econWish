@@ -40,7 +40,7 @@ export default function App() {
     // data is a state variable. this makes appcontent a state-dependent 
     // component
     let appcontent = data ?
-        <AppContent users={convertUsersToArrayOfObject(data)} /> :
+        <AppContent users={convertUsersToArrayOfObject([...data])} /> :
         <div style={{color: "black"}}>Loading...</div>
 
     return (
@@ -99,9 +99,9 @@ function getUserPositionIndex(user0) {
 }
 
 function AppContent({ users }) {
-    console.log(users)
+    
     // window.users means there is a global variable named users
-    window.users = users
+    
     window.autocompleteOptions = [] // autocompleteOptions is a global variable
     users.forEach(e => {
         window.autocompleteOptions.push(
@@ -111,12 +111,21 @@ function AppContent({ users }) {
             }
         )
     })
-    const cards = users.map((e, i) => {
+    console.log('before ',users)
+    // users.reverse()
+    users=[...users]
+    users.reverse()
+    const user1 = [...users].pop()
+    console.log('after',users.pop())
+    console.log('after',users)
+    // const user1 = [...users.splice(0,1)]
+    // console.log(user1)
+    const cards = [user1, ...users].map((e, i) => {
 
 
         return (
             <GalleryItem key={i} className={e.grade}>
-
+                
                 <Card2 user={e} />
                 <ShareBar shareLink={appConfig.appUrl + '#' + e.id} title={e.name + ' - ' + e.grade} />
             </GalleryItem>

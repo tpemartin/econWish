@@ -12,6 +12,7 @@ import { Fab } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import AutoCompleteSearch from '../SearchAppBarTop/AutocompleteSearch';
 import SendIcon from '@mui/icons-material/Send';
+import { RefreshOutlined } from '@mui/icons-material';
 
 
 export default function SpeedDailTools({ autocompleteOptions }) {
@@ -29,6 +30,11 @@ export default function SpeedDailTools({ autocompleteOptions }) {
         <SpeedDialAction sx={{marginLeft: "10px", width: "130px",
         borderWidth: "0px"}}
           icon={<AutoCompleteSearch options={autocompleteOptions} />} />
+          <SpeedDialAction
+            icon={<RefreshOutlined 
+            onClick={() => window.location.reload()}
+            />} />
+
 
 
         {/* {actions.map((action) => (

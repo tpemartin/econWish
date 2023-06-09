@@ -47,7 +47,7 @@ const [data, setData] = useState(null)
   * `setData` is the function to set the state variable.
   * `useState` is a function to create state variable. The parameter is the initial value of the state variable.
   * `null` is the initial value of the state variable.
-  
+
 ### conditional rendering on state variable
 
 ```js
