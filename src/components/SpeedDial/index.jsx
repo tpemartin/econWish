@@ -14,13 +14,6 @@ import AutoCompleteSearch from '../SearchAppBarTop/AutocompleteSearch';
 import SendIcon from '@mui/icons-material/Send';
 
 
-const actions = [
-  { icon: <FileCopyIcon />, name: 'Copy' },
-  { icon: <SaveIcon />, name: 'Save' },
-  { icon: <PrintIcon />, name: 'Print' },
-  { icon: <ShareIcon />, name: 'Share' },
-];
-
 export default function SpeedDailTools({ autocompleteOptions }) {
   return (
     
@@ -33,7 +26,8 @@ export default function SpeedDailTools({ autocompleteOptions }) {
 
         <SpeedDialAction
           icon={<SendPostCardModal />} />
-        <SpeedDialAction sx={{marginLeft: "10px", width: "160px"}}
+        <SpeedDialAction sx={{marginLeft: "10px", width: "130px",
+        borderWidth: "0px"}}
           icon={<AutoCompleteSearch options={autocompleteOptions} />} />
 
 
