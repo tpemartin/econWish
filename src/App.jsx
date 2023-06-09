@@ -15,6 +15,7 @@ import AboutUs from './components/AboutUs';
 import ChangeCircleOutlinedIcon from '@mui/icons-material/ChangeCircleOutlined';
 import SimpleSlide from './components/SlideButton';
 import FloatingActionButtons, { FloatingActionButtonGroup } from './components/FAB';
+import SpeedDailTools from './components/SpeedDial';
 
 export default function App() {
 
@@ -138,10 +139,11 @@ function AppContent({ users }) {
                         <div className="endCard" />
                     </>
                 </Gallery>
+                <SpeedDailTools autocompleteOptions={autocompleteOptions}/>
             </div>
-            <FloatingActionButtons autocompleteOptions={autocompleteOptions}/>
+            {/* <FloatingActionButtons autocompleteOptions={autocompleteOptions}/> */}
             
-            
+            <SpeedDailTools autocompleteOptions={autocompleteOptions}/>
         </div>
 
     )
