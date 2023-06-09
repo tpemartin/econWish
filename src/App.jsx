@@ -16,6 +16,8 @@ import ChangeCircleOutlinedIcon from '@mui/icons-material/ChangeCircleOutlined';
 import SimpleSlide from './components/SlideButton';
 import FloatingActionButtons, { FloatingActionButtonGroup } from './components/FAB';
 import SpeedDailTools from './components/SpeedDial';
+import appLogo from "./app.png"
+import { Helmet } from 'react-helmet';
 
 export default function App() {
 
@@ -51,7 +53,10 @@ export default function App() {
              appcontent
                 
             }
-            
+            <Helmet>
+                <meta property='og:image' content={appLogo} />    
+                <meta property="og:url" content="https://tpemartin.github.io/econWish/"/>
+            </Helmet>    
         </div>
 
     )
@@ -111,15 +116,14 @@ function AppContent({ users }) {
             }
         )
     })
-    console.log('before ',users)
+   
     // users.reverse()
     users=[...users]
     users.reverse()
-    const user1 = [...users].pop()
-    console.log('after',users.pop())
-    console.log('after',users)
-    // const user1 = [...users.splice(0,1)]
-    // console.log(user1)
+    //users.pop()
+    const user1 = users.pop() //[...users].pop()
+    
+   
     const cards = [user1, ...users].map((e, i) => {
 
 
