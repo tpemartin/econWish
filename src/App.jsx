@@ -33,8 +33,14 @@ export default function App() {
                 }
             })
 
-    }, [appConfig])
-
+    }, [])
+    // axios.get(appConfig.entryUrl)
+    // .then((response) => {
+    //     console.log(response)
+    //     if (response.status === 200) {
+    //         setData(response.data)
+    //     }
+    // })
     // data null means false
     // data is a state variable. this makes appcontent a state-dependent 
     // component

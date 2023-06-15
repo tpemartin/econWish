@@ -49,6 +49,8 @@ useEffect(() => {
   
   * `dependencies` is an array of variables that the effect part depends on.
 
+> Any code inside `useEffect` will only be executed after the rendering is done. (i.e. after the return jsx is executed)
+
 There are several rules to follow when defining dependencies:
 
   * If your Effect’s code doesn’t use any reactive values (mean state variables and component function property arguments), its dependency list should be empty ([])
@@ -81,7 +83,7 @@ When users visit the app using hash url (like `https://ntpuecon.github.io/econwi
 
 ## SpeedDial
   
-    * <https://material-ui.com/components/speed-dial/>
+  * <https://material-ui.com/components/speed-dial/>
 
 ## ShareBar
 
