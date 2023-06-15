@@ -87,7 +87,7 @@ When users visit the app using hash url (like `https://ntpuecon.github.io/econwi
 
 ## ShareBar
 
-    * Each card has its own sharelink as `https://tpemartin.github.io/econWish/#{cardId}`
+  * Each card has its own sharelink as `https://tpemartin.github.io/econWish/#{cardId}`
 
 
 # SEO 
