@@ -18,7 +18,7 @@ import ShareBar from './components/ShareBar';
 
 export default function App() {
 
-    const [data, setData] = useState(null)
+    const [data, setData] = useState(null) // rendering code part
 
 
     useEffect(() => {
