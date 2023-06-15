@@ -90,6 +90,8 @@ When users visit the app using hash url (like `https://ntpuecon.github.io/econwi
 
 # SEO 
 
+Searching Engine Optimization (SEO) is about how to make your website more friendly to searching engines like Google, Bing, Yahoo, etc. The goal is to make your website appear in the top of the searching result. The keys are `<meta>` tags and `<title>` tag in your `index.html`'s `<head>` tag.
+
   * facebook testing site: <https://developers.facebook.com/tools/debug/>
   * LINE testing site: <https://poker.line.naver.jp/>
 
