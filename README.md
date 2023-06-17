@@ -6,4 +6,4 @@ There are three versions.
 
   * Version2 and version3 are students' versions
     * <https://tpemartin.github.io/econWish/version2/>
-    * <<https://tpemartin.github.io/econWish/version3/>
+    * <https://tpemartin.github.io/econWish/version3/>
